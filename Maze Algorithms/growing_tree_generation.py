@@ -1,3 +1,5 @@
+#helpful link1: https://weblog.jamisbuck.org/2011/1/27/maze-generation-growing-tree-algorithm
+
 import pygame, random
 
 width, height = 501, 501
@@ -185,33 +187,23 @@ def generate_maze_from_grid(grid):
     exploratory_cells = [grid.cells[rand_key]]
     exploratory_cells[0].visited = True
     #playing with how exploratory cells are chosen
-    #1% chance for oldest,45% chance for newest,45% chance for random,9% chance for hybrid
+    #1% chance for oldest, 45% chance for newest, 45% chance for random, 9% chance for hybrid
     selection_method = random.randrange(0,101)
     while exploratory_cells:
         random_cell_index = None
         if selection_method == 0: #oldest cell
-            print("OLDEST")
             random_cell_index = 0
         elif selection_method >=1 and selection_method <=45: #newest cell
-            print("NEWEST")
             random_cell_index = len(exploratory_cells)-1
         elif selection_method >=46 and selection_method <=91: #random cell
-            print("RANDOM")
             random_cell_index = random.randrange(0, len(exploratory_cells))
         else: #hybrid
-            print("HYBRID")
-            #hybrid can be between all methods
-            #may do it differently, like oldest-newest, random-oldest, etc.
-            #mixed method below
             rand_selection_method = random.randrange(0,3)
             if rand_selection_method == 0: #oldest cell
-                print("HYBRID-OLDEST")
                 random_cell_index = 0
             elif rand_selection_method == 1: #newest cell
-                print("HYBRID-NEWEST")
                 random_cell_index = len(exploratory_cells)-1
             else: #completely random cell
-                print("HYBRID-RANDOM")
                 random_cell_index = random.randrange(0, len(exploratory_cells))
         rand_cell = exploratory_cells[random_cell_index]
         neighbors = rand_cell.find_cell_neighbors(grid._cells)
