@@ -1,3 +1,5 @@
+#helpful link2: http://weblog.jamisbuck.org/2010/12/29/maze-generation-eller-s-algorithm
+
 import pygame, random
 
 width, height = 501, 501
@@ -209,7 +211,7 @@ def generate_maze_from_grid(grid):
             for key in paths_dict:
                 path_list = paths_dict[key]
                 if len(path_list) > 1:
-                    numb_downward_connections = random.randrange(1, len(path_list)+1)
+                    numb_downward_connections = random.randrange(1, len(path_list))
                     for i in range (numb_downward_connections):
                         random_cell_index = random.randrange(0, len(path_list))
                         chosen_cell = path_list[random_cell_index]
