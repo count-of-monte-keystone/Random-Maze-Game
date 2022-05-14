@@ -1,3 +1,5 @@
+#helpful link1: https://weblog.jamisbuck.org/2011/1/17/maze-generation-aldous-broder-algorithm
+
 import pygame, random
 
 width, height = 501, 501
