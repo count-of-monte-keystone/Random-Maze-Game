@@ -1,3 +1,5 @@
+#helpful link1: https://weblog.jamisbuck.org/2011/1/24/maze-generation-hunt-and-kill-algorithm
+
 import pygame, random
 
 width, height = 501, 501
